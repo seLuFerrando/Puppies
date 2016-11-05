@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Puppies</string>
+    <string name="tvName">Puppy</string>
+    <string name="tvRaiting">0</string>
 </resources>
