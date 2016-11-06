@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Puppies</string>
     <string name="tvName">Puppy</string>
-    <string name="tvRaiting">0</string>
+    <string name="tvRaiting" translatable="false">0</string>
     <string name="itemFavorites">Favorites</string>
     <string name="itemSettings">Settings</string>
 </resources>
