@@ -4,4 +4,12 @@
     <string name="app_name">Mascotas</string>
     <string name="itemSettings">Configuracion</string>
     <string name="tvName">Puppy</string>
+    <string name="btSend">Enviar Mensaje</string>
+    <string name="etMessage">Mensaje:</string>
+    <string name="etName">Nombre:</string>
+    <string name="itemAbout">Acerca de</string>
+    <string name="itemContact">Contacto</string>
+    <string name="pleaseWait">Por favor espere...</string>
+    <string name="sendingEmail">Enviando Email</string>
+    <string name="sentEmail">Email Enviado</string>
 </resources>

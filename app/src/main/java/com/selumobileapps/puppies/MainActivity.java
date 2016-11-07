@@ -1,12 +1,15 @@
 package com.selumobileapps.puppies;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,8 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, FavoritesActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.itemSettings:
-                //TODO item click
+            case R.id.itemContact:
+                Intent intent2 = new Intent(this, ContactActivity.class);
+                startActivity(intent2);
+                return true;
+            case R.id.itemAbout:
+                showAlert();
                 return true;
         }
 
@@ -81,5 +88,20 @@ public class MainActivity extends AppCompatActivity {
     public void iniPuppiesAdapter(){
         PuppyAdapter adapter = new PuppyAdapter(puppies);
         puppiesList.setAdapter(adapter);
+    }
+
+    private void showAlert(){
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertBuilder.setTitle(R.string.itemAbout);
+        LayoutInflater inflater = this.getLayoutInflater();
+        alertBuilder.setView(inflater.inflate(R.layout.dialog_about, null))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        alertBuilder.create();
+        alertBuilder.show();
     }
 }

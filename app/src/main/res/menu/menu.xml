@@ -9,9 +9,14 @@
         android:icon="@drawable/star5"
         app:showAsAction="ifRoom"
         />
-    <item android:id="@+id/itemSettings"
-        android:title="@string/itemSettings"
+    <item android:id="@+id/itemContact"
+        android:title="@string/itemContact"
         android:orderInCategory="200"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/itemAbout"
+        android:title="@string/itemAbout"
+        android:orderInCategory="300"
         app:showAsAction="never"
         />
 </menu>

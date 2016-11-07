@@ -1,7 +1,23 @@
 <resources>
+    <string name="emailAccount">seluferrando@gmail.com</string>
+    <string name="emailPassword">Dientax2141</string>
     <string name="app_name">Puppies</string>
+    <string name="author">seLu Ferrando</string>
+    <string name="version">1.0</string>
+    <string name="telephone">683 242 971</string>
+    <string name="email">selu@selumobileapps.com</string>
+    <string name="www">selumobileapps.com</string>
     <string name="tvName">Puppy</string>
     <string name="tvRaiting" translatable="false">0</string>
     <string name="itemFavorites">Favorites</string>
     <string name="itemSettings">Settings</string>
+    <string name="itemContact">Contact</string>
+    <string name="itemAbout">About</string>
+    <string name="etName">Name:</string>
+    <string name="etEmail" translatable="false">Email:</string>
+    <string name="etMessage">Message:</string>
+    <string name="btSend">Send Message</string>
+    <string name="sendingEmail">Sending Email</string>
+    <string name="pleaseWait">Please wait...</string>
+    <string name="sentEmail">Email Sent</string>
 </resources>

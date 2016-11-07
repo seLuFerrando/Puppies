@@ -3,14 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.selumobileapps.puppies.FavoritesActivity">
-    <item android:id="@+id/itemContact"
-        android:title="@string/itemContact"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        />
     <item android:id="@+id/itemAbout"
         android:title="@string/itemAbout"
-        android:orderInCategory="200"
+        android:orderInCategory="100"
         app:showAsAction="never"
         />
 </menu>

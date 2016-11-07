@@ -1,10 +1,14 @@
 package com.selumobileapps.puppies;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -44,8 +48,12 @@ public class FavoritesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.itemSettings:
-                //TODO item click
+            case R.id.itemContact:
+                Intent intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemAbout:
+                showAlert();
                 return true;
         }
 
@@ -66,5 +74,19 @@ public class FavoritesActivity extends AppCompatActivity {
         puppiesList.setAdapter(adapter);
     }
 
+    private void showAlert(){
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(FavoritesActivity.this);
+        alertBuilder.setTitle(R.string.itemAbout);
+        LayoutInflater inflater = this.getLayoutInflater();
+        alertBuilder.setView(inflater.inflate(R.layout.dialog_about, null))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        alertBuilder.create();
+        alertBuilder.show();
+    }
 
 }
