@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.selumobileapps.puppies.adapter.PuppyAdapter;
+import com.selumobileapps.puppies.pojo.Puppy;
+
 import java.util.ArrayList;
 
 /**

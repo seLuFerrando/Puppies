@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cvPuppy"
+    android:id="@+id/cvGallery"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardUseCompatPadding="true">
@@ -14,9 +13,10 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:padding="@dimen/activity_vertical_margin"
+            android:layout_gravity="center"
             app:srcCompat="@drawable/puppy"
             android:id="@+id/imgPuppy" />
 
@@ -27,24 +27,6 @@
             android:elevation="@dimen/cardview_padding"
             android:padding="4dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/favorite"
-                android:id="@+id/imgFavorite"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="@string/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNamePuppy"
-                android:layout_weight="1"
-                android:gravity="left|center_vertical"
-                android:layout_gravity="left|center_vertical"
-                android:textSize="@dimen/textViews"
-                android:textStyle="bold" />
-
 
             <TextView
                 android:text="@string/tvRaiting"
@@ -54,13 +36,17 @@
                 android:layout_weight="1"
                 android:gravity="right|center_vertical"
                 android:layout_gravity="right|center_vertical"
-                android:textSize="@dimen/textViews"
-                android:textStyle="bold" />
+                android:paddingRight="@dimen/margin_top"
+                android:textSize="@dimen/textView" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity="left"
+                android:layout_gravity="left"
+                android:paddingLeft="@dimen/margin_top"
                 app:srcCompat="@drawable/raiting"
+                android:scaleType="fitStart"
                 android:id="@+id/imgRaiting"
                 android:layout_weight="1" />
 

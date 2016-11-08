@@ -3,16 +3,24 @@ package com.selumobileapps.puppies;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.selumobileapps.puppies.adapter.PageAdapter;
+import com.selumobileapps.puppies.adapter.PuppyAdapter;
+import com.selumobileapps.puppies.fragment.ProfileFragment;
+import com.selumobileapps.puppies.fragment.RecyclerViewFragment;
+import com.selumobileapps.puppies.pojo.Puppy;
 
 import java.util.ArrayList;
 
@@ -21,23 +29,32 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Puppy> puppies;
     FloatingActionButton fab;
     private RecyclerView puppiesList;
+    private Toolbar actionBar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar actionBar = (Toolbar) findViewById(R.id.actionBar);
-        setSupportActionBar(actionBar);
-        getSupportActionBar().setIcon(R.drawable.footprint);
+        actionBar = (Toolbar) findViewById(R.id.actionBar);
+        if(actionBar != null) {
+            setSupportActionBar(actionBar);
+            getSupportActionBar().setIcon(R.drawable.footprint);
+        }
 
-        puppiesList = (RecyclerView) findViewById(R.id.rvPuppies);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        setUpViewPager();
+/*        puppiesList = (RecyclerView) findViewById(R.id.rvPuppies);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         puppiesList.setLayoutManager(llm);
         iniPuppiesList();
         iniPuppiesAdapter();
-
+*/
         fab = (FloatingActionButton) findViewById(R.id.fabCamera);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,21 +90,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void iniPuppiesList(){
-        puppies = new ArrayList<Puppy>();
-        puppies.add(new Puppy(R.drawable.puppy, "Satcha", 5, false));
-        puppies.add(new Puppy(R.drawable.puppy2, "Rocko"));
-        puppies.add(new Puppy(R.drawable.puppy3, "Kuka", 3));
-        puppies.add(new Puppy(R.drawable.puppy4, "Tronk"));
-        puppies.add(new Puppy(R.drawable.puppy5, "Drako"));
-        puppies.add(new Puppy(R.drawable.puppy6, "Mari"));
-        puppies.add(new Puppy(R.drawable.puppy7, "Trosky"));
-        puppies.add(new Puppy(R.drawable.puppy8, "Blanca"));
+    private ArrayList<Fragment> addFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new ProfileFragment());
+        return fragments;
     }
 
-    public void iniPuppiesAdapter(){
-        PuppyAdapter adapter = new PuppyAdapter(puppies);
-        puppiesList.setAdapter(adapter);
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), addFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_dog);
     }
 
     private void showAlert(){

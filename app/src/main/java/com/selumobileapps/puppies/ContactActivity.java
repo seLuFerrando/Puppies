@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.selumobileapps.puppies.adapter.SendMail;
+
 public class ContactActivity extends AppCompatActivity {
 
     TextInputEditText etName;

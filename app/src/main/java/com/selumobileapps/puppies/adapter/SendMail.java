@@ -1,9 +1,11 @@
-package com.selumobileapps.puppies;
+package com.selumobileapps.puppies.adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.selumobileapps.puppies.R;
 
 import java.util.Properties;
 import javax.mail.Message;
