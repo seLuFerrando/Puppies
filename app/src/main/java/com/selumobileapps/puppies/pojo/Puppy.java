@@ -5,10 +5,19 @@ package com.selumobileapps.puppies.pojo;
  */
 
 public class Puppy {
+    private int id;
     private int img;
     private String name;
     private int raiting;
     private boolean favorite;
+
+    public Puppy(int id, int img, String name, int raiting, boolean favorite){
+        this.id = id;
+        this.img = img;
+        this.name = name;
+        this.raiting = raiting;
+        this.favorite = favorite;
+    }
 
     public Puppy(int img, String name, int raiting, boolean favorite){
         this.img = img;
@@ -29,6 +38,14 @@ public class Puppy {
         this.name = name;
         this.raiting = 0;
         this.favorite = false;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getImg() {
@@ -62,4 +79,5 @@ public class Puppy {
     public void setFavorite() {
         this.favorite = true;
     }
+
 }

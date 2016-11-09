@@ -8,8 +8,8 @@
     android:orientation="vertical">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/circle_image"
+        android:layout_height="@dimen/circle_image"
         android:src="@drawable/puppy7"
         android:paddingTop="@dimen/padding_top"
         app:civ_shadow="true"

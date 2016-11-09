@@ -8,4 +8,7 @@
     <dimen name="appBar_elevation">4dp</dimen>
     <dimen name="margin_top">5dp</dimen>
     <dimen name="padding_top">25dp</dimen>
+    <dimen name="circle_image">150dp</dimen>
+    <dimen name="gallery_image">100dp</dimen>
+    <dimen name="bone_image">25dp</dimen>
 </resources>
