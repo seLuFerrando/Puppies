@@ -1,6 +1,6 @@
 <resources>
-    <string name="emailAccount">seluferrando@gmail.com</string>
-    <string name="emailPassword">Dientax2141</string>
+    <string name="emailAccount">your@gmail.com</string>
+    <string name="emailPassword">password</string>
     <string name="app_name">Puppies</string>
     <string name="author">seLu Ferrando</string>
     <string name="version">1.0</string>
