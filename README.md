@@ -15,9 +15,9 @@ IMPORTANTE!!! - ENVIAR MENSAJE
 
 Al pulsar sobre el hueso blanco aumentamos (+1) el raiting de la mascota. Hasta un máximo de 5, después pasa a 0.
 
-![Alt text](https://github.com/seLuFerrando/Puppies/tree/week4/app/src/main/res/drawable/screenshot41.png "ViewPager - Options menu – RecyclerView")
+![Alt text](https://github.com/seLuFerrando/Puppies/blob/week4/app/src/main/res/drawable/screenshot41.png "ViewPager - Options menu – RecyclerView")
 
-![Alt text](https://github.com/seLuFerrando/Puppies/tree/week4/app/src/main/res/drawable/screenshot42.png "Contact Form – JavaMail - About...")
+![Alt text](https://github.com/seLuFerrando/Puppies/blob/week4/app/src/main/res/drawable/screenshot42.png "Contact Form – JavaMail - About...")
 
-![Alt text](https://github.com/seLuFerrando/Puppies/tree/week4/app/src/main/res/drawable/screenshot43.png "Raiting Mascota – Favorites")
+![Alt text](https://github.com/seLuFerrando/Puppies/blob/week4/app/src/main/res/drawable/screenshot43.png "Raiting Mascota – Favorites")
 
