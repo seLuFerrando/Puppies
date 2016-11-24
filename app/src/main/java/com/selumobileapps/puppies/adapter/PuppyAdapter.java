@@ -1,5 +1,6 @@
 package com.selumobileapps.puppies.adapter;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.selumobileapps.puppies.pojo.Puppy;
+import com.selumobileapps.puppies.model.PuppiesBuilder;
+import com.selumobileapps.puppies.model.Puppy;
 import com.selumobileapps.puppies.R;
 
 import java.util.ArrayList;
@@ -19,9 +21,11 @@ import java.util.ArrayList;
 public class PuppyAdapter extends RecyclerView.Adapter<PuppyAdapter.PuppyViewHolder>{
 
     ArrayList<Puppy> puppies;
+    Activity activity;
 
-    public PuppyAdapter(ArrayList<Puppy> puppies){
+    public PuppyAdapter(ArrayList<Puppy> puppies, Activity activity){
         this.puppies = puppies;
+        this.activity = activity;
     }
 
     @Override
@@ -39,13 +43,10 @@ public class PuppyAdapter extends RecyclerView.Adapter<PuppyAdapter.PuppyViewHol
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int rait = Integer.parseInt(holder.tvRaiting.getText().toString());
-                if(rait<5) {
-                    puppy.setRaiting(rait + 1);
-                }else{
-                    puppy.setRaiting(0);
-                }
+                PuppiesBuilder puppiesBuilder = new PuppiesBuilder(activity);
+                puppiesBuilder.increaseRaiting(puppy);
                 holder.tvRaiting.setText(String.valueOf(puppy.getRaiting()));
+
             }
         });
     }

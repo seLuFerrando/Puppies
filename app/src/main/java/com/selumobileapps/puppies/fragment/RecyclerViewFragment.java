@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 
 import com.selumobileapps.puppies.R;
 import com.selumobileapps.puppies.adapter.PuppyAdapter;
-import com.selumobileapps.puppies.pojo.Puppy;
+import com.selumobileapps.puppies.model.Puppy;
+import com.selumobileapps.puppies.presenter.IRecyclerViewFragmentPresenter;
+import com.selumobileapps.puppies.presenter.RecyclerViewFragmenentPresenter;
 
 import java.util.ArrayList;
 
@@ -20,10 +22,11 @@ import java.util.ArrayList;
  * Created by selu on 8/11/16.
  */
 
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragment{
 
     ArrayList<Puppy> puppies;
     private RecyclerView puppiesList;
+    private IRecyclerViewFragmentPresenter presenter;
 
 
     public RecyclerViewFragment() {
@@ -37,31 +40,30 @@ public class RecyclerViewFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
         puppiesList = (RecyclerView) v.findViewById(R.id.rvPuppies);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        puppiesList.setLayoutManager(llm);
-        iniPuppiesList();
-        iniPuppiesAdapter();
-
+        presenter = new RecyclerViewFragmenentPresenter(this, getContext());
+//        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+//        llm.setOrientation(LinearLayoutManager.VERTICAL);
+//        puppiesList.setLayoutManager(llm);
+//        iniPuppiesList();
+//        iniPuppiesAdapter();
         return v;
     }
 
-    public void iniPuppiesList(){
-        puppies = new ArrayList<Puppy>();
-        puppies.add(new Puppy(R.drawable.puppy, "Satcha", 3, false));
-        puppies.add(new Puppy(R.drawable.puppy2, "Rocko", 1));
-        puppies.add(new Puppy(R.drawable.puppy3, "Kuka", 4));
-        puppies.add(new Puppy(R.drawable.puppy4, "Tronk"));
-        puppies.add(new Puppy(R.drawable.puppy5, "Drako", 2, true));
-        puppies.add(new Puppy(R.drawable.puppy6, "Mari", 1));
-        puppies.add(new Puppy(R.drawable.puppy7, "Trosky", 2, true));
-        puppies.add(new Puppy(R.drawable.puppy8, "Blanca"));
+    @Override
+    public void makeLinearLayout() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        puppiesList.setLayoutManager(llm);
     }
 
-    public void iniPuppiesAdapter(){
-        PuppyAdapter adapter = new PuppyAdapter(puppies);
+    @Override
+    public PuppyAdapter makeAdapter(ArrayList<Puppy> puppies) {
+        PuppyAdapter puppyAdapter = new PuppyAdapter(puppies, getActivity());
+        return puppyAdapter;
+    }
+
+    @Override
+    public void iniAdapterRV(PuppyAdapter adapter) {
         puppiesList.setAdapter(adapter);
     }
-
-
 }

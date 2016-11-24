@@ -8,8 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.selumobileapps.puppies.R;
-import com.selumobileapps.puppies.pojo.ImagePuppy;
-import com.selumobileapps.puppies.pojo.Puppy;
+import com.selumobileapps.puppies.model.ImagePuppy;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
 package com.selumobileapps.puppies;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.selumobileapps.puppies.adapter.PuppyAdapter;
-import com.selumobileapps.puppies.pojo.Puppy;
+import com.selumobileapps.puppies.model.PuppiesBuilder;
+import com.selumobileapps.puppies.model.Puppy;
 
 import java.util.ArrayList;
 
@@ -22,8 +24,12 @@ import java.util.ArrayList;
  */
 
 public class FavoritesActivity extends AppCompatActivity {
+
+    private Context context;
+    private PuppiesBuilder puppiesBuilder;
     ArrayList<Puppy> puppies;
     private RecyclerView puppiesList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,16 +70,20 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void iniPuppiesList(){
-        puppies = new ArrayList<Puppy>();
+/*        puppies = new ArrayList<Puppy>();
         puppies.add(new Puppy(R.drawable.puppy4, "Tronk"));
         puppies.add(new Puppy(R.drawable.puppy5, "Drako"));
         puppies.add(new Puppy(R.drawable.puppy6, "Mari"));
         puppies.add(new Puppy(R.drawable.puppy7, "Trosky"));
         puppies.add(new Puppy(R.drawable.puppy8, "Blanca"));
+*/
+        puppiesBuilder = new PuppiesBuilder(this);
+        puppies = puppiesBuilder.getFavoritePuppies();
+
     }
 
     public void iniPuppiesAdapter(){
-        PuppyAdapter adapter = new PuppyAdapter(puppies);
+        PuppyAdapter adapter = new PuppyAdapter(puppies, this);
         puppiesList.setAdapter(adapter);
     }
 

@@ -4,7 +4,6 @@ package com.selumobileapps.puppies.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.selumobileapps.puppies.R;
 import com.selumobileapps.puppies.adapter.ImagePuppyAdapter;
-import com.selumobileapps.puppies.pojo.ImagePuppy;
+import com.selumobileapps.puppies.model.ImagePuppy;
 
 import java.util.ArrayList;
 

@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,18 +16,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.selumobileapps.puppies.adapter.PageAdapter;
-import com.selumobileapps.puppies.adapter.PuppyAdapter;
 import com.selumobileapps.puppies.fragment.ProfileFragment;
 import com.selumobileapps.puppies.fragment.RecyclerViewFragment;
-import com.selumobileapps.puppies.pojo.Puppy;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Puppy> puppies;
     FloatingActionButton fab;
-    private RecyclerView puppiesList;
     private Toolbar actionBar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -48,13 +43,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         setUpViewPager();
-/*        puppiesList = (RecyclerView) findViewById(R.id.rvPuppies);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        puppiesList.setLayoutManager(llm);
-        iniPuppiesList();
-        iniPuppiesAdapter();
-*/
+
         fab = (FloatingActionButton) findViewById(R.id.fabCamera);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

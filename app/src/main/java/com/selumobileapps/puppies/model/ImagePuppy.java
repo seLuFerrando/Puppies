@@ -1,4 +1,4 @@
-package com.selumobileapps.puppies.pojo;
+package com.selumobileapps.puppies.model;
 
 /**
  * Created by selu on 8/11/16.

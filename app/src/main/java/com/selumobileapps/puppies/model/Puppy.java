@@ -1,4 +1,4 @@
-package com.selumobileapps.puppies.pojo;
+package com.selumobileapps.puppies.model;
 
 /**
  * Created by selu on 5/11/16.
@@ -9,35 +9,32 @@ public class Puppy {
     private int img;
     private String name;
     private int raiting;
-    private boolean favorite;
 
-    public Puppy(int id, int img, String name, int raiting, boolean favorite){
+    public Puppy(int id, int img, String name, int raiting){
         this.id = id;
         this.img = img;
         this.name = name;
         this.raiting = raiting;
-        this.favorite = favorite;
-    }
-
-    public Puppy(int img, String name, int raiting, boolean favorite){
-        this.img = img;
-        this.name = name;
-        this.raiting = raiting;
-        this.favorite = favorite;
     }
 
     public Puppy(int img, String name, int raiting){
         this.img = img;
         this.name = name;
         this.raiting = raiting;
-        this.favorite = false;
+    }
+
+
+    public Puppy(int id, int img, String name){
+        this.id = id;
+        this.img = img;
+        this.name = name;
+        this.raiting = 0;
     }
 
     public Puppy(int img, String name){
         this.img = img;
         this.name = name;
         this.raiting = 0;
-        this.favorite = false;
     }
 
     public int getId() {
@@ -70,14 +67,6 @@ public class Puppy {
 
     public void setRaiting(int raiting) {
         this.raiting = raiting;
-    }
-
-    public boolean isFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite() {
-        this.favorite = true;
     }
 
 }
