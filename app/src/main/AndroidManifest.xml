@@ -21,6 +21,10 @@
         <activity 
             android:name=".ContactActivity"
             android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".SetUpAccountActivity"
+            android:parentActivityName=".MainActivity"></activity>
+
     </application>
 
 </manifest>

@@ -8,10 +8,11 @@
     android:orientation="vertical">
 
     <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/civProfile"
         android:layout_width="@dimen/circle_image"
         android:layout_height="@dimen/circle_image"
         android:src="@drawable/puppy7"
-        android:paddingTop="@dimen/padding_top"
+        android:layout_marginTop="@dimen/padding_top"
         app:civ_shadow="true"
         app:civ_shadow_color="@color/colorDivider"
         android:layout_gravity="center_horizontal"

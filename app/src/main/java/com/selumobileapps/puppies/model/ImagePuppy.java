@@ -7,22 +7,15 @@ package com.selumobileapps.puppies.model;
 public class ImagePuppy {
     private int id;
     private int idPuppy;
-    private int img;
+    private String img;
     private int raiting;
 
-
-    public ImagePuppy(int id, int idPuppy, int img, int raiting) {
-        this.id = id;
-        this.idPuppy = idPuppy;
+    public ImagePuppy(String img, int raiting){
         this.img = img;
         this.raiting = raiting;
     }
-
-    public ImagePuppy(int img, int raiting){
-        this.img = img;
-        this.raiting = raiting;
-    }
-
+    public ImagePuppy(){};
+/*
     public int getId() {
         return id;
     }
@@ -38,12 +31,12 @@ public class ImagePuppy {
     public void setIdPuppy(int idPuppy) {
         this.idPuppy = idPuppy;
     }
-
-    public int getImg() {
+*/
+    public String getImage() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImage(String img) {
         this.img = img;
     }
 

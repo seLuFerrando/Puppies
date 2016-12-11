@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.itemAbout:
                 showAlert();
                 return true;
+            case R.id.itemSettings:
+                Intent intent3 = new Intent(this, SetUpAccountActivity.class);
+                startActivity(intent3);
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

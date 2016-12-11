@@ -1,5 +1,6 @@
 package com.selumobileapps.puppies.adapter;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.selumobileapps.puppies.R;
 import com.selumobileapps.puppies.model.ImagePuppy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -19,9 +21,11 @@ import java.util.ArrayList;
 public class ImagePuppyAdapter extends RecyclerView.Adapter<ImagePuppyAdapter.ImagePuppyViewHolder>{
 
     ArrayList<ImagePuppy> images;
+    Activity activity;
 
-    public ImagePuppyAdapter(ArrayList<ImagePuppy> images){
+    public ImagePuppyAdapter(ArrayList<ImagePuppy> images, Activity activity){
         this.images = images;
+        this.activity = activity;
     }
 
     @Override
@@ -33,7 +37,12 @@ public class ImagePuppyAdapter extends RecyclerView.Adapter<ImagePuppyAdapter.Im
     @Override
     public void onBindViewHolder(ImagePuppyViewHolder holder, int position) {
         final ImagePuppy image = images.get(position);
-        holder.img.setImageResource(image.getImg());
+//        holder.img.setImageResource(image.getImage());
+        Picasso.with(activity)
+                .load(image.getImage())
+                .placeholder(R.drawable.puppy)
+                .into(holder.img);
+
         holder.raiting.setText(String.valueOf(image.getRaiting()));
     }
 

@@ -1,6 +1,7 @@
 package com.selumobileapps.puppies;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -51,16 +52,29 @@ public class ContactActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_contact, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.itemFavorites:
+                Intent intent = new Intent(this, FavoritesActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemContact:
+                Intent intent2 = new Intent(this, ContactActivity.class);
+                startActivity(intent2);
+                return true;
             case R.id.itemAbout:
                 showAlert();
                 return true;
+            case R.id.itemSettings:
+                Intent intent3 = new Intent(this, SetUpAccountActivity.class);
+                startActivity(intent3);
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

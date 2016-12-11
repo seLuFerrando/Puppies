@@ -8,10 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.selumobileapps.puppies.R;
 import com.selumobileapps.puppies.adapter.ImagePuppyAdapter;
+import com.selumobileapps.puppies.database.Preferences;
 import com.selumobileapps.puppies.model.ImagePuppy;
+import com.selumobileapps.puppies.model.InstagramUserID;
+import com.selumobileapps.puppies.presenter.IProfileRecyclerFragmentPresenter;
+import com.selumobileapps.puppies.presenter.ProfileRecyclerFragmentPresenter;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,10 +27,14 @@ import java.util.ArrayList;
  * Created by selu on 8/11/16.
  */
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements IProfileFragment{
 
-    ArrayList<ImagePuppy> images;
+    private ArrayList<ImagePuppy> images;
     private RecyclerView imagesList;
+    private IProfileRecyclerFragmentPresenter presenter;
+    CircularImageView circularImageView;
+    TextView tvName;
+    InstagramUserID instagramUserID;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -34,41 +45,34 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        circularImageView = (CircularImageView) v.findViewById(R.id.civProfile);
+        tvName = (TextView) v.findViewById(R.id.tvName);
         imagesList = (RecyclerView) v.findViewById(R.id.rvImgPuppies);
-        GridLayoutManager glm = new GridLayoutManager(getActivity(), 3);
-        //LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        //glm.setOrientation(LinearLayoutManager.VERTICAL);
-        imagesList.setLayoutManager(glm);
-        iniPuppiesList();
-        iniPuppiesAdapter();
-
-
+        presenter = new ProfileRecyclerFragmentPresenter(this, getContext());
+        Preferences prefs = new Preferences(getContext());
+        instagramUserID = prefs.getInstagramUserID();
+        Picasso.with(getActivity())
+                .load(instagramUserID.getImgProfile())
+                .placeholder(R.drawable.dogsilhouette)
+                .into(circularImageView);
+        tvName.setText(instagramUserID.getFullName());
         return v;
     }
-    public void iniPuppiesList(){
-        images = new ArrayList<ImagePuppy>();
-        images.add(new ImagePuppy(R.drawable.puppy, 4));
-        images.add(new ImagePuppy(R.drawable.puppy2, 2));
-        images.add(new ImagePuppy(R.drawable.puppy4, 0));
-        images.add(new ImagePuppy(R.drawable.puppy6, 2));
-        images.add(new ImagePuppy(R.drawable.puppy8, 1));
-        images.add(new ImagePuppy(R.drawable.puppy3, 3));
-        images.add(new ImagePuppy(R.drawable.puppy5, 3));
-        images.add(new ImagePuppy(R.drawable.puppy7, 4));
-        images.add(new ImagePuppy(R.drawable.puppy, 5));
-        images.add(new ImagePuppy(R.drawable.puppy2, 0));
-        images.add(new ImagePuppy(R.drawable.puppy3, 2));
-        images.add(new ImagePuppy(R.drawable.puppy4, 1));
-        images.add(new ImagePuppy(R.drawable.puppy5, 3));
-        images.add(new ImagePuppy(R.drawable.puppy6, 3));
-        images.add(new ImagePuppy(R.drawable.puppy7, 2));
-        images.add(new ImagePuppy(R.drawable.puppy8, 5));
+
+    @Override
+    public void makeGridLayout() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
+        imagesList.setLayoutManager(gridLayoutManager);
     }
 
-    public void iniPuppiesAdapter(){
-        ImagePuppyAdapter adapter = new ImagePuppyAdapter(images);
+    @Override
+    public ImagePuppyAdapter makeAdapter(ArrayList<ImagePuppy> imagePuppies) {
+        ImagePuppyAdapter imagePuppyAdapter = new ImagePuppyAdapter(imagePuppies, getActivity());
+        return imagePuppyAdapter;
+    }
+
+    @Override
+    public void iniAdapterRV(ImagePuppyAdapter adapter) {
         imagesList.setAdapter(adapter);
     }
-
-
 }
