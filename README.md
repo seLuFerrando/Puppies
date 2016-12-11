@@ -1,7 +1,7 @@
 ﻿# Puppies
-Curso android Universidad Nacional Autónoma de México - curso 3 semana 5
+Curso android Universidad Nacional Autónoma de México - curso 4 semana 1
 
-Generando Persistencia en nuestra aplicación
+Integrando Web Services en nuestra aplicación
 
 
 IMPORTANTE!!! - ENVIAR MENSAJE
