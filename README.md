@@ -4,6 +4,8 @@ Curso android Universidad Nacional Autónoma de México - curso 4 semana 1
 Integrando Web Services en nuestra aplicación
 
 
+En la configuracion de pantalla se puede buscar cualquier usuario de instagram que este en el SANDBOX de la app. Si quieres que te envie una invitacion enviame un email a ferrando@ingenieros.com.
+
 IMPORTANTE!!! - ENVIAR MENSAJE
 
 	Antes de ejecutar la app, si deseamos probar la utilidad se debe introducir la cuenta de gmail y el password.

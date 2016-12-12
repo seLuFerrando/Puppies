@@ -73,9 +73,7 @@ public class SetUpAccountActivity extends AppCompatActivity {
         ibSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //getDataProfile();
-                if (!etSearch.getText().toString().equals("seluferrando"))
-                Toast.makeText(getApplicationContext(),"NO se ha podido encontrar el Usuario", Toast.LENGTH_LONG).show();
+                getDataProfile();
             }
         });
         btSave = (Button)findViewById(R.id.btSave);
@@ -83,6 +81,7 @@ public class SetUpAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prefs.setInstagramUserID(instagramUserID);
+                onBackPressed();
             }
         });
         instagramUserID = prefs.getInstagramUserID();
@@ -138,7 +137,7 @@ public class SetUpAccountActivity extends AppCompatActivity {
         alertBuilder.show();
     }
     public void getDataProfile() {
-        String url = ConstantsRestApi.ROOT_URL + ConstantsRestApi.URL_SEARCH_USER_PROFILE1
+        String url = ConstantsRestApi.URL_SEARCH_USER_PROFILE1
                 + etSearch.getText().toString()
                 + ConstantsRestApi.URL_SEARCH_USER_PROFILE2;
         Log.d("URL USER", url);
@@ -164,13 +163,17 @@ public class SetUpAccountActivity extends AppCompatActivity {
     }
 
     public void showDataProfile(){
-        instagramUserID = usersList.get(0);
-        Picasso.with(this)
-                .load(instagramUserID.getImgProfile())
-                .placeholder(R.drawable.dogsilhouette)
-                .into(civProfile);
-        tvId.setText(instagramUserID.getId());
-        tvFullName.setText(instagramUserID.getFullName());
+        if(!usersList.isEmpty()) {
+            instagramUserID = usersList.get(0);
+            Picasso.with(this)
+                    .load(instagramUserID.getImgProfile())
+                    .placeholder(R.drawable.dogsilhouette)
+                    .into(civProfile);
+            tvId.setText(instagramUserID.getId());
+            tvFullName.setText(instagramUserID.getFullName());
+        }else{
+            Toast.makeText(getApplicationContext(),"NO se ha podido encontrar el Usuario", Toast.LENGTH_LONG).show();
+        }
     }
 
 

@@ -3,11 +3,13 @@ package com.selumobileapps.puppies.restAPI.adapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.selumobileapps.puppies.model.ImagePuppy;
+import com.selumobileapps.puppies.model.InstagramUserID;
 import com.selumobileapps.puppies.restAPI.ConstantsRestApi;
 import com.selumobileapps.puppies.restAPI.IEndpointsApi;
 import com.selumobileapps.puppies.restAPI.deserializer.MediaRecentDeserializer;
 import com.selumobileapps.puppies.restAPI.deserializer.UserSearchDeserializer;
 import com.selumobileapps.puppies.restAPI.model.ImagePuppyResponse;
+import com.selumobileapps.puppies.restAPI.model.InstagramUserIDResponse;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -34,7 +36,7 @@ public class RestApiAdapter {
 
     public Gson gsonUserSearchDeserializer(){
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(ImagePuppyResponse.class, new UserSearchDeserializer());
+        gsonBuilder.registerTypeAdapter(InstagramUserIDResponse.class, new UserSearchDeserializer());
         return gsonBuilder.create();
     }
 

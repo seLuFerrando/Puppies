@@ -27,27 +27,27 @@ public class UserSearchDeserializer implements JsonDeserializer<InstagramUserIDR
         Gson gson = new Gson();
         InstagramUserIDResponse instagramUserIDResponse = gson.fromJson(json, InstagramUserIDResponse.class);
         JsonArray instagramUserIDResponseData = json.getAsJsonObject().getAsJsonArray(JsonKeys.MEDIA_RESPONSE_ARRAY);
-        instagramUserIDResponse.setInstagramUserID(instagramUserIDJsonDeserializer(instagramUserIDResponseData));
 
         instagramUserIDResponse.setInstagramUserID(instagramUserIDJsonDeserializer(instagramUserIDResponseData));
+        Log.e("DESERIALIZER", "Esta en el user deserialize");
         return instagramUserIDResponse;
     }
 
     private ArrayList<InstagramUserID> instagramUserIDJsonDeserializer(JsonArray instagramUserIDResponseData) {
         ArrayList<InstagramUserID> instagramUserID = new ArrayList<>();
         for(int i=0; i<instagramUserIDResponseData.size(); i++) {
-            JsonObject imagePuppiesResponseDataObject = instagramUserIDResponseData.get(i).getAsJsonObject();
-            String id           = imagePuppiesResponseDataObject.get(JsonKeys.USER_ID).getAsString();
-            String userName     = imagePuppiesResponseDataObject.get(JsonKeys.USERNAME).getAsString();
-            String fullName     = imagePuppiesResponseDataObject.get(JsonKeys.USER_FULLNAME).getAsString();
-            String imgProfile   = imagePuppiesResponseDataObject.get(JsonKeys.PROFILE_PICTURE).getAsString();
+            JsonObject instagramUserIDResponseDataObject = instagramUserIDResponseData.get(i).getAsJsonObject();
+            String id           = instagramUserIDResponseDataObject.get(JsonKeys.USER_ID).getAsString();
+            String userName     = instagramUserIDResponseDataObject.get(JsonKeys.USERNAME).getAsString();
+            String fullName     = instagramUserIDResponseDataObject.get(JsonKeys.USER_FULLNAME).getAsString();
+            String imgProfile   = instagramUserIDResponseDataObject.get(JsonKeys.PROFILE_PICTURE).getAsString();
 
             InstagramUserID user = new InstagramUserID();
             user.setId(id);
             user.setUserName(userName);
             user.setFullName(fullName);
             user.setImgProfile(imgProfile);
-            Log.i("DESERIALIZER", "user "+i+" name "+userName+" "+id);
+            Log.e("DESERIALIZER", "user "+i+" name "+userName+" "+id);
             instagramUserID.add(user);
 
         }
