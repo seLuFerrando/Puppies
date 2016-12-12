@@ -1,5 +1,6 @@
 package com.selumobileapps.puppies;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,6 @@ import com.selumobileapps.puppies.model.InstagramUserID;
 import com.selumobileapps.puppies.restAPI.ConstantsRestApi;
 import com.selumobileapps.puppies.restAPI.IEndpointsApi;
 import com.selumobileapps.puppies.restAPI.adapter.RestApiAdapter;
-import com.selumobileapps.puppies.restAPI.model.ImagePuppyResponse;
 import com.selumobileapps.puppies.restAPI.model.InstagramUserIDResponse;
 import com.squareup.picasso.Picasso;
 
@@ -51,10 +51,12 @@ public class SetUpAccountActivity extends AppCompatActivity {
     Preferences prefs;
     InstagramUserID instagramUserID;
     ArrayList<InstagramUserID> usersList;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_setupaccount);
 
         Toolbar actionBar = (Toolbar) findViewById(R.id.actionBar);
@@ -81,7 +83,10 @@ public class SetUpAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prefs.setInstagramUserID(instagramUserID);
-                onBackPressed();
+                //onBackPressed();
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         instagramUserID = prefs.getInstagramUserID();
